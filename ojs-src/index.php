@@ -14,8 +14,8 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 
 // sql to create table
-$sql = "CREATE TABLE IF NOT EXISTS mariadb.messages(
-bigint id not null primary key,
+$sql = "CREATE TABLE mariadb.messages(
+bigint id,
 text mensaje
 )";
 
