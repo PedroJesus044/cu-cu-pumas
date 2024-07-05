@@ -1,8 +1,8 @@
 <?php
-$servername = "mysql";
-$username = "ojs";
-$password = "ojs";
-$database = "ojs";
+$servername = "mariadb";
+$username = "mariadb";
+$password = "mariadb";
+$database = "mariadb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
