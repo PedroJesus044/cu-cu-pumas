@@ -13,8 +13,8 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
-/*// sql to create table
-$sql = "CREATE TABLE IF NOT EXISTS messages(
+// sql to create table
+$sql = "CREATE TABLE IF NOT EXISTS mariadb.messages(
 bigint id not null primary key,
 text mensaje
 )";
@@ -23,10 +23,10 @@ if ($conn->query($sql) === TRUE) {
     echo "Table messages created successfully<br>";
 } else {
     echo "Error creating table: " . $conn->error;
-}*/
+}
 
 
-$sql = "INSERT INTO messages (id, mensaje)
+$sql = "INSERT INTO mariadb.messages (id, mensaje)
 VALUES (1 , 'cu cu pumas'), (2 , 'el américa csm'), (3 , 'fuera morena'), (4 , 'este hogar es clasista')";
 
 if ($conn->query($sql) === TRUE) {
@@ -35,7 +35,7 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql = "SELECT * FROM messages";
+$sql = "SELECT * FROM mariadb.messages";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
