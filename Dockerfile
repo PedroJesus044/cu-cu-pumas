@@ -4,8 +4,8 @@ FROM ubi7/php-73
 ADD ojs-src .
 USER root
 #RUN chown apache:apache -R .
-RUN chgrp -R 0 /some/directory && \
-    chmod -R g=u /some/directory
+RUN chgrp -R 0 . && \
+    chmod -R g=u .
 
 # Install the dependencies
 #RUN TEMPFILE=$(mktemp) && \
