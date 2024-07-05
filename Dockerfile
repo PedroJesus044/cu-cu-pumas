@@ -1,0 +1,2 @@
+FROM ubi7/php-73
+EXPOSE 8080
