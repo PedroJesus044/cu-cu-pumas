@@ -21,4 +21,5 @@ RUN chown apache:apache -R .
 # This can obviously be done differently, and in that case, the final CMD
 # should be set to "CMD httpd -D FOREGROUND" instead.
 EXPOSE 8080
+USER apache
 CMD /usr/libexec/s2i/run
