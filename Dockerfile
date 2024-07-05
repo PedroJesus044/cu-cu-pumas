@@ -4,10 +4,10 @@ FROM ubi7/php-73
 ADD app-src .
 
 # Install the dependencies
-RUN TEMPFILE=$(mktemp) && \
-    curl -o "$TEMPFILE" "https://getcomposer.org/installer" && \
-    php <"$TEMPFILE" && \
-    ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
+#RUN TEMPFILE=$(mktemp) && \
+#    curl -o "$TEMPFILE" "https://getcomposer.org/installer" && \
+#    php <"$TEMPFILE" && \
+#    ./composer.phar install --no-interaction --no-ansi --optimize-autoloader
 
 # Run script uses standard ways to configure the PHP application
 # and execs httpd -D FOREGROUND at the end
