@@ -1,7 +1,7 @@
 FROM ubi7/php-73
 
 # Add application sources
-ADD app-src .
+ADD ojs-src .
 
 # Install the dependencies
 #RUN TEMPFILE=$(mktemp) && \
