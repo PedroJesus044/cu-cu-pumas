@@ -3,7 +3,9 @@ FROM ubi7/php-73
 # Add application sources
 ADD ojs-src .
 USER root
-RUN chown apache:apache -R .
+#RUN chown apache:apache -R .
+RUN chgrp -R 0 /some/directory && \
+    chmod -R g=u /some/directory
 
 # Install the dependencies
 #RUN TEMPFILE=$(mktemp) && \
