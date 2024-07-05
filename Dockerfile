@@ -18,5 +18,7 @@ ADD ojs-src .
 # the approriate places.
 # This can obviously be done differently, and in that case, the final CMD
 # should be set to "CMD httpd -D FOREGROUND" instead.
+USER root
+RUN chown apache:apache -R .
 EXPOSE 8080
 CMD /usr/libexec/s2i/run
