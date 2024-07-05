@@ -14,20 +14,20 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 
 // sql to create table
-$sql = "CREATE TABLE mariadb.messages(
-bigint id,
-text mensaje
-)";
+$sql = "CREATE TABLE mensaje (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+mensaje VARCHAR(60) NOT NULL
+) ";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Table messages created successfully<br>";
+    echo "Table mensaje created successfully<br>";
 } else {
     echo "Error creating table: " . $conn->error;
 }
 
 
-$sql = "INSERT INTO mariadb.messages (id, mensaje)
-VALUES (1 , 'cu cu pumas'), (2 , 'el américa csm'), (3 , 'fuera morena'), (4 , 'este hogar es clasista')";
+$sql = "INSERT INTO mensaje (mensaje)
+VALUES ('cu cu pumas'), ('csm el américa'), ('fuera morena'), ('este hogar es clasista')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully<br>";
@@ -35,13 +35,13 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql = "SELECT * FROM mariadb.messages";
+$sql = "SELECT * FROM mensaje";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - Name: " . $row["mensaje"]. " <br>";
+    echo "id: " . $row["id"]. " - Mensaje: " . $row["mensaje"]. " <br>";
   }
 } else {
   echo "0 results";
