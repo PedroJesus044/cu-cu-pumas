@@ -22,11 +22,34 @@ text mensaje
 )";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Table MyGuests created successfully";
+    echo "Table messages created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
 }
-    
+
+
+$sql = "INSERT INTO messages (id, mensaje)
+VALUES (1 , 'cu cu pumas'), (2 , 'el américa csm'), (3 , 'fuera morena'), (4 , 'este hogar es clasista')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$sql = "SELECT * FROM messages";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["id"]. " - Name: " . $row["mensaje"]. " <br>";
+  }
+} else {
+  echo "0 results";
+}
+
+
 $conn->close();
 
 ?> 
