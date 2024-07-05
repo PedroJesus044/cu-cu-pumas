@@ -13,9 +13,7 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
-
-
-// sql to create table
+/*// sql to create table
 $sql = "CREATE TABLE IF NOT EXISTS messages(
 bigint id not null primary key,
 text mensaje
@@ -25,7 +23,7 @@ if ($conn->query($sql) === TRUE) {
     echo "Table messages created successfully<br>";
 } else {
     echo "Error creating table: " . $conn->error;
-}
+}*/
 
 
 $sql = "INSERT INTO messages (id, mensaje)
