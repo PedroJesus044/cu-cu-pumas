@@ -1,7 +1,7 @@
 FROM ubi7/php-73
 
 # Add application sources
-ADD ojs-src .
+ADD wordpress .
 USER root
 #RUN chown apache:apache -R .
 RUN chgrp -R 0 . && \
