@@ -1,7 +1,10 @@
 FROM ubi7/php-73
 
 # Add application sources
+WORKDIR /var/www/html
 ADD ojs-src .
+USER root
+RUN chown apache:apache -R /var/www/html
 
 # Install the dependencies
 #RUN TEMPFILE=$(mktemp) && \
@@ -18,7 +21,5 @@ ADD ojs-src .
 # the approriate places.
 # This can obviously be done differently, and in that case, the final CMD
 # should be set to "CMD httpd -D FOREGROUND" instead.
-USER root
-RUN chown apache:apache -R .
 EXPOSE 8080
 CMD /usr/libexec/s2i/run
