@@ -16,13 +16,13 @@ echo "Connected successfully";
 
 
 // sql to create table
-$sql = "CREATE TABLE messages(
+$sql = "CREATE TABLE IF NOT EXISTS messages(
 bigint id not null primary key,
 text mensaje
 )";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Table messages created successfully";
+    echo "Table messages created successfully<br>";
 } else {
     echo "Error creating table: " . $conn->error;
 }
@@ -32,7 +32,7 @@ $sql = "INSERT INTO messages (id, mensaje)
 VALUES (1 , 'cu cu pumas'), (2 , 'el américa csm'), (3 , 'fuera morena'), (4 , 'este hogar es clasista')";
 
 if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
+  echo "New record created successfully<br>";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
