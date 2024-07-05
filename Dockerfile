@@ -1,7 +1,7 @@
 FROM ubi7/php-73
 
 # Add application sources
-ADD wordpress .
+ADD phpMyAdmin .
 USER root
 #RUN chown apache:apache -R .
 RUN chgrp -R 0 . && \
