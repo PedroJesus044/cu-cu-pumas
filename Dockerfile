@@ -1,10 +1,9 @@
 FROM ubi7/php-73
 
 # Add application sources
-WORKDIR /var/www/html
 ADD ojs-src .
 USER root
-RUN chown apache:apache -R /var/www/html
+RUN chown apache:apache -R .
 
 # Install the dependencies
 #RUN TEMPFILE=$(mktemp) && \
